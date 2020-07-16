@@ -9,3 +9,9 @@ import Stripe from 'stripe';
 export const stripe = new Stripe(process.env.STRIPE_SECRET, {
   apiVersion: '2020-03-02',
 });
+
+/* Start the API with Express */
+import { app } from './api';
+console.log(process.env.WEBAPP_URL)
+const port = process.env.PORT || 3333;
+app.listen(port, () => console.log(`API available on http://localhost:${port}`));
